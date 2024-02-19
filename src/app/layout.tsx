@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
-import "./globals.css";
+import type {Metadata} from 'next';
+import {Be_Vietnam_Pro} from 'next/font/google';
+import './globals.css';
 
 const beVietnamPro = Be_Vietnam_Pro({
   weight: ['400', '500', '700'],
@@ -10,7 +10,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Manage",
+  title: 'Manage',
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${beVietnamPro.variable}`}>{children}</body>
+      <body className={`${beVietnamPro.variable} font-sans`}>{children}</body>
     </html>
   );
 }
