@@ -8,12 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        '2xl': '1440px',
+        '3xl': '1700px',
+      },
       fontFamily: {
         sans: ['var(--font-be-vietnam-pro)'],
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
