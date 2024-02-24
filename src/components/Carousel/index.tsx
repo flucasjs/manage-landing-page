@@ -9,11 +9,13 @@ import testimonialsData from '@/data/testimonials';
 
 const INITIAL_CARD = 1;
 const DRAG_THRESHOLD = 150;
+const INITIAL_POSITION =
+  Math.trunc(testimonialsData.length / 2) - (testimonialsData.length % 2 === 0 ? 0.5 : 0);
 
 export default function Carousel() {
   const windowWidth = useWindowWidth();
-  const [itemOffset, setItemOffset] = React.useState(0);
-  const [active, setActive] = React.useState(INITIAL_CARD);
+  const [itemOffset, setItemOffset] = React.useState<number>(0);
+  const [active, setActive] = React.useState<number>(INITIAL_CARD);
   const cardRefs = React.useRef<(HTMLLIElement | null)[]>([]);
   const containerRef = React.useRef<HTMLUListElement | null>(null);
   const offsetX = useMotionValue(0);
@@ -32,7 +34,7 @@ export default function Carousel() {
   }, []);
 
   React.useEffect(() => {
-    const initialOffset = 1.5 * itemOffset;
+    const initialOffset = INITIAL_POSITION * itemOffset;
     offsetX.set(initialOffset - active * itemOffset);
   }, [active, itemOffset, offsetX]);
 
@@ -67,7 +69,7 @@ export default function Carousel() {
 
     // Running sum of offset to snap to.
     let totalOffset = 0;
-    
+
     // Update active index to item being dragged to.
     if (isDraggingPrev) {
       for (let i = active; i >= 0; i--) {
@@ -99,18 +101,21 @@ export default function Carousel() {
   }
 
   return (
-    <div className="mb-[2.625rem] flex flex-col items-center">
+    <div className="mb-[2.625rem] flex flex-col items-center lg:mb-[11.25rem]">
       <h2 className="mb-16 text-[2rem] font-extrabold leading-[1.40625] -tracking-[0.01885em] text-[#242D52]">
         What they&apos;ve said
       </h2>
       <motion.ul
-        className="mb-[1.625rem] flex cursor-pointer overflow-hidden"
+        className="mb-[1.625rem] flex cursor-grab overflow-hidden"
         ref={containerRef}
         style={{
           x: animatedX,
         }}
         drag="x"
-        dragConstraints={{left: -1.5 * itemOffset, right: 1.5 * itemOffset}}
+        dragConstraints={{
+          left: -INITIAL_POSITION * itemOffset,
+          right: INITIAL_POSITION * itemOffset,
+        }}
         onDragEnd={handleDrag}
       >
         {testimonialsData.map((item, i) => (
