@@ -4,6 +4,9 @@ import Hero from '@/components/Hero';
 import Background from '@/components/Background';
 import About from '@/components/About';
 import Carousel from '@/components/Carousel';
+import CTA from '@/components/CTA';
+import Footer from '@/components/Footer';
+
 export default function Home() {
   return (
     <div className="relative w-full overflow-hidden">
@@ -12,6 +15,8 @@ export default function Home() {
       <Hero />
       <About />
       <Carousel />
+      <CTA />
+      <Footer />
     </div>
   );
 }
