@@ -48,21 +48,11 @@ export default function Header() {
           ref={menuRef}
         >
           <ul className="mx-auto flex max-w-md flex-col items-center gap-y-6 rounded-lg bg-white py-10 text-base  font-bold leading-[1.4375] -tracking-[0.018125em] shadow-[0_10px_20px_0_rgba(80,86,98,0.03)] hover:text-[#242D52] lg:mt-0 lg:flex-row lg:gap-x-4 lg:gap-y-0 lg:whitespace-nowrap lg:rounded-none lg:bg-inherit lg:py-0 lg:text-[0.8125rem] lg:font-medium lg:leading-[1.4615] lg:tracking-normal lg:shadow-none xl:gap-x-8">
-            <li>
-              <Link href="#">Pricing</Link>
-            </li>
-            <li>
-              <Link href="#">Product</Link>
-            </li>
-            <li>
-              <Link href="#">About Us</Link>
-            </li>
-            <li>
-              <Link href="#">Careers</Link>
-            </li>
-            <li>
-              <Link href="#">Community</Link>
-            </li>
+            {['Pricing', 'Product', 'About Us', 'Careers', 'Community'].map(item => (
+              <li key={item} className="hover:opacity-50">
+                <Link href="#">{item}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <button
