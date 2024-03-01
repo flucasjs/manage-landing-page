@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <>
-      <header className=" mx-auto mb-12 flex flex-wrap items-center justify-between px-6 pt-12 md:max-w-3xl lg:mb-24 lg:max-w-full lg:flex-nowrap lg:px-32 lg:pt-16 xl:px-48 2xl:px-[10rem] 3xl:px-[18rem]">
+      <header className="max-w-[500px] mx-auto mb-12 flex flex-wrap items-center justify-between px-6 pt-12 lg:mb-24 lg:max-w-full lg:flex-nowrap lg:px-32 lg:pt-16 xl:px-48 2xl:px-[10rem] 3xl:px-[18rem]">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="146" height="24">
             <g fill="none" fillRule="evenodd">
